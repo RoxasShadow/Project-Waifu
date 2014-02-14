@@ -41,18 +41,18 @@ public class WaifuMenuBehavior extends Behavior {
 		// retrieve master name
 		String mName = (String) Serializer.deserialize(null, "mastername.dat");
 		
-		String question = "What can I help you with?";
+		String question = Localization.getString("whatCanIhelpYouWith") + "?"
 		if (mName != null) {
-			question = "What can I help you with "+ mName +"?";
+			question = Localization.getString("whatCanIhelpYouWith") + mName + "?";
 		}
 		
 		// show menu
 		CloudComment cc = CAF.createCloudComment(question);
 		SkinSwitch ss = CAF.createSkinSwitch(Emotion.happy.code);
 		RadioBtn menu = CAF.createRadioBtn();
-		menu.addOption("Would you read my comment?");
-		menu.addOption("Tell me something positive!");
-		menu.addOption("I'd like to talk with you!");
+    menu.addOption(Localization.getString("readMyComment"));
+    menu.addOption(Localization.getString("somethingOfPositive"));
+    menu.addOption(Localization.getString("talkWithYou"));
 		menu.addOption(Localization.getString("eventInMind"));
 		
 		cc.trigger();
