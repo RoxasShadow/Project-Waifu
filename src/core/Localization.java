@@ -7,7 +7,7 @@ import java.util.ResourceBundle;
 //@ Project     : ProjectWaifu
 //@ File Name   : Localization.java
 //@ Date        : 2013.07.02.
-//@ Author      : RoxasShadow
+//@ Author      : Giovanni Capuano <https://github.com/RoxasShadow>
 //@ Copyright   : All rights reserved
 
 

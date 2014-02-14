@@ -41,7 +41,7 @@ public class WaifuMenuBehavior extends Behavior {
 		// retrieve master name
 		String mName = (String) Serializer.deserialize(null, "mastername.dat");
 		
-		String question = Localization.getString("whatCanIhelpYouWith") + "?"
+		String question = Localization.getString("whatCanIhelpYouWith") + "?";
 		if (mName != null) {
 			question = Localization.getString("whatCanIhelpYouWith") + mName + "?";
 		}
