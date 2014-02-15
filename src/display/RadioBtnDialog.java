@@ -213,7 +213,7 @@ public class RadioBtnDialog extends JDialog {
 
 		public OkAction() {
 			putValue(NAME, Localization.getString("ok"));
-			putValue(SHORT_DESCRIPTION, Localization.getString("informYourWaifu"));
+			putValue(SHORT_DESCRIPTION, Localization.getString("okDescription"));
 		}
 		
 		public void actionPerformed(ActionEvent e) {
@@ -229,7 +229,7 @@ public class RadioBtnDialog extends JDialog {
 		
 		public CancelAction() {
 			putValue(NAME, Localization.getString("cancel"));
-			putValue(SHORT_DESCRIPTION, ":(");
+      putValue(SHORT_DESCRIPTION, Localization.getString("cancelDescription"));
 		}
 		
 		public void actionPerformed(ActionEvent e) {
