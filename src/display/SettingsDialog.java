@@ -188,25 +188,20 @@ public class SettingsDialog extends JDialog {
 			if(System.getProperty("os.name").toLowerCase().indexOf("win") < 0)
 			  JOptionPane.showMessageDialog(null, Localization.getString("thisFeatureIsSupportedOnlyOn").replace("{{os}}", "Windows"));
 			else {
-			  String  path    = new java.io.File(System.getProperty("java.class.path")).getAbsoluteFile().toString();
-			  Startup startup = new WindowsStartup(path);
-			  if(runOnSCheckb.isSelected())
-			    try {
+			  try {
+			    Startup startup = new WindowsStartup();
+  			  if(runOnSCheckb.isSelected()) {
 			      if(!startup.add())
 			        JOptionPane.showMessageDialog(null, Localization.getString("errorStartingOnBoot").replace("{{os}}", "Windows"));
-			    }
-			    catch(Exception ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
-			    }
-  			 else {
-  			   try {
-  			     if(!startup.remove())
-  			       JOptionPane.showMessageDialog(null, Localization.getString("errorRemovingFromBoot").replace("{{os}}", "Windows"));
-  			   }
-  			   catch(Exception ex) {
-             JOptionPane.showMessageDialog(null, ex.getMessage());
-           }
-  			 }
+  			  }
+    			else {
+    			  if(!startup.remove())
+    			    JOptionPane.showMessageDialog(null, Localization.getString("errorRemovingFromBoot").replace("{{os}}", "Windows"));
+    			}
+			  }
+        catch(Exception ex) {
+          JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
 			}
 			
 			dispose();

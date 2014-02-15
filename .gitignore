@@ -1,2 +1,3 @@
 /dist/serialized
+/dist/*.bat
 /bin

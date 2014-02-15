@@ -38,9 +38,8 @@ public class Settings implements Serializable {
     	
     	// default settings
       if(System.getProperty("os.name").toLowerCase().indexOf("win") >= 0) {
-        String  path      = new java.io.File(System.getProperty("java.class.path")).getAbsoluteFile().toString();
-        Startup startup   = new WindowsStartup(path);
         try {
+          Startup startup = new WindowsStartup();
           this.runOnStartUp = startup.exists();
         }
         catch(Exception e) {
