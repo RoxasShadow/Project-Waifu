@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import core.AI;
 import core.BehaviorContainer;
 import core.BehaviorLoader;
+import core.Localization;
 import core.Serializer;
 import core.Settings;
 
@@ -58,7 +59,7 @@ public class AIOptionsDialog extends JDialog {
     }
     
     public void showD() {
-    	int chooseResult = this.chooser.showDialog(this.getParent(), "Choose directory of AI files");
+    	int chooseResult = this.chooser.showDialog(this.getParent(), Localization.getString("chooseDirectoryOfAIFiles"));
     	
     	if (chooseResult == JFileChooser.APPROVE_OPTION) {
     		

@@ -29,6 +29,7 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.Action;
 
+import core.Localization;
 import core.Settings;
 
 public class InputBoxDialog extends JDialog {
@@ -37,8 +38,8 @@ public class InputBoxDialog extends JDialog {
 	private final JPanel buttonPane = new JPanel();
 	private JFrame parentFrame;
 	
-	private final JButton cancelButton = new JButton("Cancel");
-	private final JButton okButton = new JButton("OK");
+	private final JButton cancelButton = new JButton(Localization.getString("cancel"));
+	private final JButton okButton = new JButton(Localization.getString("ok"));
 	private final JTextField textField = new JTextField();
 	
 	private int result = -1;
@@ -138,8 +139,8 @@ public class InputBoxDialog extends JDialog {
 		private static final long serialVersionUID = 2718147188036426104L;
 
 		public OkAction() {
-			putValue(NAME, "Ok");
-			putValue(SHORT_DESCRIPTION, "Inform your Waifu!");
+			putValue(NAME, Localization.getString("ok"));
+			putValue(SHORT_DESCRIPTION, Localization.getString("informYourWaifu"));
 		}
 		
 		public void actionPerformed(ActionEvent e) {

@@ -31,6 +31,7 @@ import java.util.List;
 
 import javax.swing.Action;
 
+import core.Localization;
 import core.Settings;
 
 public class RadioBtnDialog extends JDialog {
@@ -42,8 +43,8 @@ public class RadioBtnDialog extends JDialog {
 	
 	private final JPanel buttonPane = new JPanel();
 	private final JPanel radioBtnPane = new JPanel();
-	private final JButton cancelButton = new JButton("Cancel");
-	private final JButton okButton = new JButton("OK");
+	private final JButton cancelButton = new JButton(Localization.getString("cancel"));
+	private final JButton okButton = new JButton(Localization.getString("ok"));
 	
 	private int result = -1;
 	private Settings settings;
@@ -211,8 +212,8 @@ public class RadioBtnDialog extends JDialog {
 		private static final long serialVersionUID = 2718147188036426104L;
 
 		public OkAction() {
-			putValue(NAME, "Ok");
-			putValue(SHORT_DESCRIPTION, "Inform your Waifu!");
+			putValue(NAME, Localization.getString("ok"));
+			putValue(SHORT_DESCRIPTION, Localization.getString("informYourWaifu"));
 		}
 		
 		public void actionPerformed(ActionEvent e) {
@@ -227,7 +228,7 @@ public class RadioBtnDialog extends JDialog {
 		private static final long serialVersionUID = 5132265699678512529L;
 		
 		public CancelAction() {
-			putValue(NAME, "Cancel");
+			putValue(NAME, Localization.getString("cancel"));
 			putValue(SHORT_DESCRIPTION, ":(");
 		}
 		

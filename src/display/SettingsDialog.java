@@ -1,6 +1,8 @@
 package display;
 
 import javax.swing.JDialog;
+
+import core.Localization;
 import core.Serializer;
 import core.Settings;
 import java.awt.GridBagLayout;
@@ -35,8 +37,8 @@ public class SettingsDialog extends JDialog {
 	private JFrame mainFrame;
 	
 	private final JPanel buttonPane = new JPanel();
-	private final JButton cancelButton = new JButton("Cancel");
-	private final JButton okButton = new JButton("OK");
+	private final JButton cancelButton = new JButton(Localization.getString("cancel"));
+	private final JButton okButton = new JButton(Localization.getString("ok"));
 	
 	//private int result = -1;
 	private final Action okAction = new OkAction();
@@ -61,7 +63,7 @@ public class SettingsDialog extends JDialog {
     
 	public void init() {
 		this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-		this.setTitle("Settings..");
+		this.setTitle(Localization.getString("settings"));
 		
 		// clear
 		this.okButton.setEnabled(true);
@@ -80,11 +82,11 @@ public class SettingsDialog extends JDialog {
 		getContentPane().add(buttonPane, BorderLayout.SOUTH);
 		okButton.setAction(okAction);
 		
-		okButton.setActionCommand("OK");
+		okButton.setActionCommand(Localization.getString("ok"));
 		buttonPane.add(okButton);
 		getRootPane().setDefaultButton(okButton);
 		cancelButton.setAction(cancelAction);
-		cancelButton.setActionCommand("Cancel");
+		cancelButton.setActionCommand(Localization.getString("cancel"));
 		buttonPane.add(cancelButton);
 		
 		getContentPane().add(settingsPanel, BorderLayout.CENTER);
@@ -158,8 +160,8 @@ public class SettingsDialog extends JDialog {
 		private static final long serialVersionUID = 4623275957298708592L;
 
 		public OkAction() {
-			putValue(NAME, "Ok");
-			putValue(SHORT_DESCRIPTION, "Inform your Waifu!");
+			putValue(NAME, Localization.getString("ok"));
+			putValue(SHORT_DESCRIPTION, Localization.getString("informYourWaifu"));
 		}
 		
 		public void actionPerformed(ActionEvent e) {
@@ -189,7 +191,7 @@ public class SettingsDialog extends JDialog {
 		private static final long serialVersionUID = -6470808910237258184L;
 
 		public CancelAction() {
-			putValue(NAME, "Cancel");
+			putValue(NAME, Localization.getString("cancel"));
 			putValue(SHORT_DESCRIPTION, ":(");
 		}
 		

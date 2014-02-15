@@ -4,6 +4,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 
+import core.Localization;
 import core.Serializer;
 import core.SkinContainer;
 import core.Emotion;
@@ -65,8 +66,8 @@ public class SkinOptionsDialog extends JDialog {
 	};
 	
 	private final JPanel buttonPane = new JPanel();
-	private final JButton cancelButton = new JButton("Cancel");
-	private final JButton okButton = new JButton("OK");
+	private final JButton cancelButton = new JButton(Localization.getString("cancel"));
+	private final JButton okButton = new JButton(Localization.getString("ok"));
 	private final Action okAction = new OkAction();
 	private final Action cancelAction = new CancelAction();
 	private final JScrollPane scrollPane = new JScrollPane();
@@ -100,7 +101,7 @@ public class SkinOptionsDialog extends JDialog {
 	
 	public void init() {
 		this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-		this.setTitle("Skin options");
+		this.setTitle(Localization.getString("skinOptions"));
 		this.setBounds(0, 0, 800, 460);
 		this.setResizable(false);
 		
@@ -155,7 +156,7 @@ public class SkinOptionsDialog extends JDialog {
 			skinsPanel.add(new JLabel(em.toString()), gbc_lblEmotion);
 			
 			// change button
-			JButton jb = new JButton("Change skin");
+			JButton jb = new JButton(Localization.getString("changeSkin"));
 			jb.setAction(new ChangeSkinAction(i));
 			GridBagConstraints gbc_btnChangeSkin = new GridBagConstraints();
 			gbc_btnChangeSkin.gridx = i;
@@ -191,13 +192,13 @@ public class SkinOptionsDialog extends JDialog {
 		
 		ChangeSkinAction(int nth) {
 			this.nth = nth;
-			putValue(NAME, "Change skin");
-			putValue(SHORT_DESCRIPTION, "Specify your own skins!");
+			putValue(NAME, Localization.getString("changeSkin"));
+			putValue(SHORT_DESCRIPTION, Localization.getString("specifyYourOwnSkins"));
 		}
 		
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			int chooseResult = chooser.showDialog(getParent(), "Choose a picture");
+			int chooseResult = chooser.showDialog(getParent(), Localization.getString("chooseAPicture"));
 			
 			if (chooseResult == JFileChooser.APPROVE_OPTION) {
 				
@@ -220,8 +221,8 @@ public class SkinOptionsDialog extends JDialog {
 		private static final long serialVersionUID = 4623275957298708592L;
 
 		public OkAction() {
-			putValue(NAME, "Ok");
-			putValue(SHORT_DESCRIPTION, "Inform your Waifu!");
+			putValue(NAME, Localization.getString("ok"));
+			putValue(SHORT_DESCRIPTION, Localization.getString("informYourWaifu"));
 		}
 		
 		public void actionPerformed(ActionEvent e) {
@@ -244,7 +245,7 @@ public class SkinOptionsDialog extends JDialog {
 		private static final long serialVersionUID = -6470808910237258184L;
 
 		public CancelAction() {
-			putValue(NAME, "Cancel");
+			putValue(NAME, Localization.getString("cancel"));
 			putValue(SHORT_DESCRIPTION, ":(");
 		}
 		

@@ -12,6 +12,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 
+import core.Localization;
 import core.Settings;
 import core.Sizing;
 import main.WaifuBuilder;
@@ -62,9 +63,9 @@ public class MenuPanel extends JPanel {
     	
     	// popup menu
     	this.popupMenu = new JPopupMenu();
-    	this.skinOpMI = new CustomMenuItem(currentSizing, "Skin options");
-    	this.settingsMI = new CustomMenuItem(currentSizing, "Settings..");
-    	this.aiOpMI = new CustomMenuItem(currentSizing, "A.I. options");
+    	this.skinOpMI = new CustomMenuItem(currentSizing, Localization.getString("skinOptions"));
+    	this.settingsMI = new CustomMenuItem(currentSizing, Localization.getString("settings"));
+    	this.aiOpMI = new CustomMenuItem(currentSizing, Localization.getString("AIOptions"));
     	
     	this.popupMenu.add(this.skinOpMI);
     	this.popupMenu.add(this.settingsMI);

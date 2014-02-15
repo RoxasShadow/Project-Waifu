@@ -3,3 +3,4 @@
 - Add JNA and KeyboardHook (http://kra.lc/blog/2011/07/java-global-system-hook/) JARs
 - Fix getHighlightedText()
 - Add support for Java 1.6
+- Add l10n support for the UI
