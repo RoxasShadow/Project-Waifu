@@ -4,5 +4,5 @@
 - Fix getHighlightedText()    (@5f08ed0d9a)
 - Add support for Java 1.6    (@af4df85cc8)
 - Add l10n support for the UI (@6080e4edda @56ef840009)
-- Decrease MenuPanel opacity when mouse exits
-- Implement run on startup
+- Decrease MenuPanel opacity when mouse exits (@3160641866)
+- Implement run on startup    (@06c4fa8305)
