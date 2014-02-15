@@ -104,7 +104,7 @@ public class AfterWork extends Behavior {
 		int si = rb.getSelectedIndex();
 		if (si == -1) { 
 			// rejected
-			cc.setComment("Nevermind.. if you don't want to tell me..");
+			cc.setComment(Localization.getString("nevermindIfYouDonTWantToTellMe"));
 			ss.setSkin(Emotion.facingaway.code);
 			
 			cc.trigger();
@@ -122,10 +122,10 @@ public class AfterWork extends Behavior {
 			Serializer.serialize(this, (Integer) si, "howwayyourday.dat");
 			
 			if (mName != null) {
-				cc.setComment("Good to hear " + mName + "!");
+				cc.setComment(Localization.getString("goodToHearMname").replace("{{mName}}", mName));
 			}
 			else {
-				cc.setComment("Good to hear!");
+				cc.setComment(Localization.getString("goodToHear"));
 			}
 			ss.setSkin(Emotion.happy.code);
 			
@@ -143,7 +143,7 @@ public class AfterWork extends Behavior {
 			// save data
 			Serializer.serialize(this, (Integer) si, "howwayyourday.dat");
 			
-			cc.setComment("Really? I'm sooo happy about that!");
+			cc.setComment(Localization.getString("reallyIMSoooHappyAboutThat"));
 			ss.setSkin(Emotion.happy.code);
 			
 			cc.trigger();
@@ -160,7 +160,7 @@ public class AfterWork extends Behavior {
 			// save data
 			Serializer.serialize(this, (Integer) si, "howwayyourday.dat");
 			
-			cc.setComment("Hmm, what a pity..");
+			cc.setComment(Localization.getString("hmmWhatAPity"));
 			ss.setSkin(Emotion.sad.code);
 			
 			cc.trigger();
@@ -172,7 +172,7 @@ public class AfterWork extends Behavior {
 				e.printStackTrace();
 			}
 			
-			cc.setComment("Because I have a great day so far, you should get more positive!");
+			cc.setComment(Localization.getString("becauseIHaveAGreatDaySoFarYouShouldGetMorePositive"));
 			ss.setSkin(Emotion.happy.code);
 			
 			cc.trigger();

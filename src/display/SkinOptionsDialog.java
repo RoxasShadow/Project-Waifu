@@ -4,7 +4,6 @@ import javax.imageio.ImageIO;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 
-import core.Localization;
 import core.Serializer;
 import core.SkinContainer;
 import core.Emotion;
@@ -101,7 +100,7 @@ public class SkinOptionsDialog extends JDialog {
 	
 	public void init() {
 		this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-		this.setTitle(Localization.getString("eventInMind"));
+		this.setTitle("Skin options");
 		this.setBounds(0, 0, 800, 460);
 		this.setResizable(false);
 		

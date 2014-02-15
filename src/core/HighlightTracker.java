@@ -90,7 +90,8 @@ public class HighlightTracker extends Sensor implements Runnable, ClipboardOwner
     }
 
     private String getClipboardText() throws Exception {
-        return (String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor);
+      Transferable t = Toolkit.getDefaultToolkit().getSystemClipboard().getContents(null);
+      return (t.isDataFlavorSupported(DataFlavor.stringFlavor)) ? t.getTransferData(DataFlavor.stringFlavor).toString() : null;
     }
 
     private void setClipboardText(String data) throws Exception {
