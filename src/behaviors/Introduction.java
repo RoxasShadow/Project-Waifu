@@ -37,7 +37,7 @@ public class Introduction extends Behavior {
 		
 		// get a name for the waifu
 		if (wName == null) {
-			cc.setComment(Localization.getString("iBelieveWeHavenTSeenEachOtherHiPleaseTellMeHowYouWantToCallMe"));
+			cc.setComment("I believe we haven't seen each other! Hi! Please tell me how you want to call me!");
 			ss.setSkin(Emotion.happy.code);
 			InputBox waifuName = CAF.createInputBox();
 			
@@ -46,7 +46,7 @@ public class Introduction extends Behavior {
 			waifuName.trigger();
 			
 			while (waifuName.getInput() == null) {
-				cc.setComment(Localization.getString("pleaseGiveMeANaaaaame"));
+				cc.setComment("Please give me a naaaaame!");
 				ss.setSkin(Emotion.sad.code);
 				
 				cc.trigger();
@@ -77,7 +77,7 @@ public class Introduction extends Behavior {
 			}
 			
 			// inform about waifu menu
-			cc.setComment(Localization.getString("fromNowOnWheneverYouTypeMyNameWaifunameGetinputILlBeAtYourService").replace("{{waifuName}}", waifuName.getInput()));
+			cc.setComment("From now on, whenever you type my name " + waifuName.getInput() + ", I'll be at your service!");
 			cc.trigger();
 			
 			try {
@@ -92,7 +92,7 @@ public class Introduction extends Behavior {
 		}
 		// get name for the master
 		else if (mName == null) {
-			cc.setComment(Localization.getString("iWasSoRudeIHavenTAskedYourNameSoWhatShouldICallYou"));
+			cc.setComment("I was so rude! I haven't asked your name, so what should I call you?");
 			ss.setSkin(Emotion.embarassed.code);
 			InputBox masterName = CAF.createInputBox();
 			
@@ -101,7 +101,7 @@ public class Introduction extends Behavior {
 			masterName.trigger();
 			
 			while (masterName.getInput() == null) {
-				cc.setComment(Localization.getString("pleaseTellMeYourName"));
+				cc.setComment("Please tell me your name!");
 				ss.setSkin(Emotion.sad.code);
 				
 				cc.trigger();
@@ -135,7 +135,7 @@ public class Introduction extends Behavior {
 			rb.addOption("Working");
 			rb.addOption("Studying");
 			rb.addOption("Chilling");
-			cc.setComment(Localization.getString("whatAreYouDoingDuringTheWeekdaysMname").replace("{{mName}}", mName));
+			cc.setComment("What are you doing during the weekdays " + mName + "?");
 			ss.setSkin(Emotion.suspicious.code);
 			
 			cc.trigger();
@@ -145,7 +145,7 @@ public class Introduction extends Behavior {
 			String question;
 			if (rb.getSelectedIndex() == -1) {
 				// rejected
-				cc.setComment(Localization.getString("okWhatever"));
+				cc.setComment("Ok whatever..");
 				ss.setSkin(Emotion.sad.code);
 				
 				try {
@@ -175,7 +175,7 @@ public class Introduction extends Behavior {
 			endofday.trigger();
 			
 			while (endofday.getInput() == null) {
-				cc.setComment(Localization.getString("pleaseTellMeeeee"));
+				cc.setComment("Please tell meeeee!");
 				ss.setSkin(Emotion.sad.code);
 				
 				cc.trigger();
@@ -197,7 +197,7 @@ public class Introduction extends Behavior {
 				
 				// say thanks
 				ss.setSkin(Emotion.happy.code);
-				cc.setComment(Localization.getString("thankYouNowICanPlanMyDayToBeAbleToSpendTheMostTimeWithYou"));
+				cc.setComment("Thank you! Now I can plan my day to be able to spend the most time with you!");
 				
 				ss.trigger();
 				cc.trigger();
@@ -210,7 +210,7 @@ public class Introduction extends Behavior {
 			}
 			else {
 				// not a number
-				cc.setComment(Localization.getString("thatWasNotANumber"));
+				cc.setComment("That was not a number!");
 				ss.setSkin(Emotion.mad.code);
 				
 				ss.trigger();

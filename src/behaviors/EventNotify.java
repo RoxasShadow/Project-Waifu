@@ -71,11 +71,11 @@ public class EventNotify extends Behavior {
 		CloudComment cl;
 		SkinSwitch ss;
 		if (cal.get(Calendar.DAY_OF_MONTH) > this.chosenEventTime.getDay()) {
-			cl = CAF.createCloudComment(Localization.getString("iForgotToTellYouAboutThisChoseneventnameIMSoSorry").replace("{{chosenEventName}}", this.chosenEventName));
+			cl = CAF.createCloudComment("I forgot to tell you about " + this.chosenEventName + "! I'm so sorry..");
 			ss = CAF.createSkinSwitch(Emotion.embarassed.code);
 		}
 		else {
-			cl = CAF.createCloudComment(Localization.getString("heyIShouldNotifyYouAboutAnEventThisChoseneventname").replace("{{chosenEventName}}", this.chosenEventName));
+			cl = CAF.createCloudComment("Hey! I should notify you about an event: " + this.chosenEventName + ".");
 			ss = CAF.createSkinSwitch(Emotion.happy.code);
 		}
 		

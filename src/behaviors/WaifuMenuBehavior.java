@@ -62,7 +62,7 @@ public class WaifuMenuBehavior extends Behavior {
 		int si = menu.getSelectedIndex();
 		if (si == -1) {
 			// cancelled
-			cc.setComment(Localization.getString("ohhOk"));
+			cc.setComment("Ohh.. ok.");
 			ss.setSkin(Emotion.sleepy.code);
 			
 			cc.trigger();
@@ -98,7 +98,7 @@ public class WaifuMenuBehavior extends Behavior {
 	}
 	
 	private void readComment(CounterActionFactory CAF) {
-		CloudComment cc = CAF.createCloudComment(Localization.getString("ofCourseHighlightYourCommentForMePlease"));
+		CloudComment cc = CAF.createCloudComment("Of course! Highlight your comment for me please!");
 		SkinSwitch ss = CAF.createSkinSwitch(Emotion.happy.code);
 		
 		cc.trigger();
@@ -121,7 +121,7 @@ public class WaifuMenuBehavior extends Behavior {
 		
 		if (!commentHed.isTextHighlighted()) {
 			// haven't highlighted anything
-			cc.setComment(Localization.getString("thankYouForThatNothing"));
+			cc.setComment("Thank you for that nothing!");
 			ss.setSkin(Emotion.facingaway.code);
 			
 			cc.trigger();
@@ -143,7 +143,7 @@ public class WaifuMenuBehavior extends Behavior {
 			
 			if (wName != null) {
 				if (text.contains(wName.toLowerCase())) {
-					cc.setComment(Localization.getString("youMentionedMyNameIMSoEmbarassed"));
+					cc.setComment("You mentioned my name?? I'm so embarassed!");
 					ss.setSkin(Emotion.embarassed.code);
 					
 					cc.trigger();
@@ -164,7 +164,7 @@ public class WaifuMenuBehavior extends Behavior {
 			
 			if (favMov != null) {
 				if (text.contains(favMov.toLowerCase())) {
-					cc.setComment(Localization.getString("thatSYourFavouriteMovieFavmovYouMentionedHellGoodItIs").replace("{{favMov}}", favMov));
+					cc.setComment("That's your favourite movie, " + favMov + ", you mentioned! Hell good it is!");
 					ss.setSkin(Emotion.happy.code);
 					
 					cc.trigger();
@@ -185,7 +185,7 @@ public class WaifuMenuBehavior extends Behavior {
 			
 			if (favSpot != null) {
 				if (text.contains(favSpot.toLowerCase())) {
-					cc.setComment(Localization.getString("thatSYourFavouriteSpotOnEarthYouMentionedFavspotWhatANicePlace").replace("{{favSpot}}", favSpot));
+					cc.setComment("That's your favourite spot on earth you mentioned, " + favSpot + "! What a nice place!");
 					ss.setSkin(Emotion.happy.code);
 					
 					cc.trigger();
@@ -206,7 +206,7 @@ public class WaifuMenuBehavior extends Behavior {
 			
 			if (musicRecently != null) {
 				if (text.contains(musicRecently.toLowerCase())) {
-					cc.setComment(Localization.getString("theMusicYouListeningToNowadaysMusicrecentlyIsMentionedGoodTasteOfMusic").replace("{{musicRecently}}", musicRecently));
+					cc.setComment("The music you listening to nowadays, " + musicRecently + ", is mentioned! Good taste of music!");
 					ss.setSkin(Emotion.happy.code);
 					
 					cc.trigger();
@@ -226,7 +226,7 @@ public class WaifuMenuBehavior extends Behavior {
 			String crushName = (String) Serializer.deserialize(null, "crushname.dat");
 			if (crushName != null) {
 				if (text.contains(crushName.toLowerCase())) {
-					cc.setComment(Localization.getString("thatSYourCrushYouReTalkingToGoOn"));
+					cc.setComment("That's your crush you're talking to?? Go on!");
 					ss.setSkin(Emotion.happy.code);
 					
 					cc.trigger();
@@ -366,7 +366,7 @@ public class WaifuMenuBehavior extends Behavior {
 		if (answer == null) {
 			// rejected
 			ss.setSkin(Emotion.sad.code);
-			cc.setComment(Localization.getString("whyDonTYouTellMe"));
+			cc.setComment("Why don't you tell me?!");
 			
 			ss.trigger();
 			cc.trigger();
@@ -382,7 +382,7 @@ public class WaifuMenuBehavior extends Behavior {
 			Serializer.serialize(null, answer, serializedFavs[qIndex]);
 			
 			ss.setSkin(Emotion.happy.code);
-			cc.setComment(Localization.getString("iAppreciateYouToldMeThatIWonTForgetIt"));
+			cc.setComment("I appreciate you told me that! I won't forget it!");
 			
 			ss.trigger();
 			cc.trigger();
@@ -404,7 +404,7 @@ public class WaifuMenuBehavior extends Behavior {
 		
 		if (events == null) {
 			ss.setSkin(Emotion.sleepy.code);
-			cc.setComment(Localization.getString("thereSNoEventIKnowAbout"));
+			cc.setComment("There's no event I know about.");
 			
 			ss.trigger();
 			cc.trigger();
@@ -418,7 +418,7 @@ public class WaifuMenuBehavior extends Behavior {
 		else {
 			if (events.size() == 0) {
 				ss.setSkin(Emotion.sleepy.code);
-				cc.setComment(Localization.getString("thereSNoEventIKnowAbout"));
+				cc.setComment("There's no event I know about.");
 				
 				ss.trigger();
 				cc.trigger();
@@ -431,7 +431,7 @@ public class WaifuMenuBehavior extends Behavior {
 			}
 			else {
 				ss.setSkin(Emotion.facingaway.code);
-				cc.setComment(Localization.getString("waitABitIFoundSomeHeereee"));
+				cc.setComment("Wait a bit, I found some heereee..");
 			
 				ss.trigger();
 				cc.trigger();
@@ -461,7 +461,7 @@ public class WaifuMenuBehavior extends Behavior {
 					}
 				}
 				
-				cc.setComment(Localization.getString("aaaandThatSAll"));
+				cc.setComment("Aaaand that's all.");
 				ss.setSkin(Emotion.sleepy.code);
 				
 				cc.trigger();

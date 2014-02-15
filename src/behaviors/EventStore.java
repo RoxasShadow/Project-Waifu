@@ -66,7 +66,7 @@ public class EventStore extends Behavior {
 		SkinSwitch skinSwitch = CAF.createSkinSwitch(Emotion.suspicious.code);
 		
 		// prepare a cloud comment for asking the user
-		CloudComment cloudComment = CAF.createCloudComment(Localization.getString("anyImportantEventsForToday"));
+		CloudComment cloudComment = CAF.createCloudComment("Any important events for today?");
 		
 		// prepare a radio button to find out if the user has any events
 		RadioBtn yesnoRadioBtn = CAF.createRadioBtn();
@@ -91,7 +91,7 @@ public class EventStore extends Behavior {
 			skinSwitch.setSkin(Emotion.mad.code);
 			// change comment
 			// same CloudComment instance will do it
-			cloudComment.setComment(Localization.getString("okIfYouDonTWantToTellMe"));
+			cloudComment.setComment("Ok, if you don't want to tell me!");
 			
 			// trigger both
 			skinSwitch.trigger();
@@ -118,7 +118,7 @@ public class EventStore extends Behavior {
 
 			while (askFurther) {
 				skinSwitch.setSkin(Emotion.talking.code);
-				cloudComment.setComment(Localization.getString("whatSTheNameOfTheEvent"));
+				cloudComment.setComment("What's the name of the event?");
 				// create an input box for asking the name of the event
 				InputBox eventNameBox = CAF.createInputBox();
 				
@@ -137,7 +137,7 @@ public class EventStore extends Behavior {
 					
 				// now we have the name
 				// ask if the event is today
-				cloudComment.setComment(Localization.getString("shallINotifyYouTodayAboutTheEvent"));
+				cloudComment.setComment("Shall I notify you today about the event?");
 				// remember we have already got a radio btn box with a yes and no options
 				cloudComment.trigger();
 				yesnoRadioBtn.trigger();
@@ -151,7 +151,7 @@ public class EventStore extends Behavior {
 				else if (selectedIndex == 0) {
 					// it's for today
 					// ask for hour
-					cloudComment.setComment(Localization.getString("whenShallINotifyYouHour023"));
+					cloudComment.setComment("When shall I notify you (hour 0-23)?");
 					InputBox eventHour = CAF.createInputBox();
 					
 					cloudComment.trigger();
@@ -166,7 +166,7 @@ public class EventStore extends Behavior {
 						try {
 							hour = Integer.parseInt(eventHour.getInput());
 						} catch (Exception e) {
-							cloudComment.setComment(Localization.getString("thatWasNotANumber"));
+							cloudComment.setComment("That was not a number!");
 							skinSwitch.setSkin(Emotion.mad.code);
 							
 							cloudComment.trigger();
@@ -181,7 +181,7 @@ public class EventStore extends Behavior {
 							return;
 						}
 						
-						cloudComment.setComment(Localization.getString("whenShallINotifyYouMinute059"));
+						cloudComment.setComment("When shall I notify you (minute 0-59)?");
 						InputBox eventMinute = CAF.createInputBox();
 						
 						cloudComment.trigger();
@@ -197,7 +197,7 @@ public class EventStore extends Behavior {
 							try {
 								minute = Integer.parseInt(eventMinute.getInput());
 							} catch (Exception e) {
-								cloudComment.setComment(Localization.getString("thatWasNotANumber"));
+								cloudComment.setComment("That was not a number!");
 								skinSwitch.setSkin(Emotion.mad.code);
 								
 								cloudComment.trigger();
@@ -233,7 +233,7 @@ public class EventStore extends Behavior {
 							Serializer.serialize(this, events, "events.dat");
 							
 							// say ok
-							cloudComment.setComment(Localization.getString("okIWonTForgetEventname").replace("{{eventName}}", eventName));
+							cloudComment.setComment("Ok, I won't forget " + eventName + "!");
 							skinSwitch.setSkin(Emotion.happy.code);
 							
 							cloudComment.trigger();
@@ -255,7 +255,7 @@ public class EventStore extends Behavior {
 				else {
 					// other day in the future
 					// ask for month at first
-					cloudComment.setComment(Localization.getString("whatMonth"));
+					cloudComment.setComment("What month?");
 					RadioBtn eventMonth = CAF.createRadioBtn();
 					
 					for (Integer i = 1; i <= 12; ++i) {
@@ -274,7 +274,7 @@ public class EventStore extends Behavior {
 						int month = eventMonth.getSelectedIndex() + 1;
 						
 						// day
-						cloudComment.setComment(Localization.getString("whatDay"));
+						cloudComment.setComment("What day?");
 						InputBox eventDay = CAF.createInputBox();
 						
 						cloudComment.trigger();
@@ -289,7 +289,7 @@ public class EventStore extends Behavior {
 							try {
 								day = Integer.parseInt(eventDay.getInput());
 							} catch (Exception e) {
-								cloudComment.setComment(Localization.getString("thatWasNotANumber"));
+								cloudComment.setComment("That was not a number!");
 								skinSwitch.setSkin(Emotion.mad.code);
 								
 								cloudComment.trigger();
@@ -305,7 +305,7 @@ public class EventStore extends Behavior {
 							}
 							
 							// hour
-							cloudComment.setComment(Localization.getString("whatHour"));
+							cloudComment.setComment("What hour?");
 							InputBox eventHour = CAF.createInputBox();
 							
 							cloudComment.trigger();
@@ -320,7 +320,7 @@ public class EventStore extends Behavior {
 								try {
 									hour = Integer.parseInt(eventHour.getInput());
 								} catch (Exception e) {
-									cloudComment.setComment(Localization.getString("thatWasNotANumber"));
+									cloudComment.setComment("That was not a number!");
 									skinSwitch.setSkin(Emotion.mad.code);
 									
 									cloudComment.trigger();
@@ -336,7 +336,7 @@ public class EventStore extends Behavior {
 								}
 								
 								// minute
-								cloudComment.setComment(Localization.getString("whenExactlyMinute"));
+								cloudComment.setComment("When exactly (minute)?");
 								InputBox eventMinute = CAF.createInputBox();
 								
 								cloudComment.trigger();
@@ -351,7 +351,7 @@ public class EventStore extends Behavior {
 									try {
 										minute = Integer.parseInt(eventMinute.getInput());
 									} catch (Exception e) {
-										cloudComment.setComment(Localization.getString("thatWasNotANumber"));
+										cloudComment.setComment("That was not a number!");
 										skinSwitch.setSkin(Emotion.mad.code);
 										
 										cloudComment.trigger();
@@ -387,7 +387,7 @@ public class EventStore extends Behavior {
 									Serializer.serialize(this, events, "events.dat");
 									
 									// say ok
-									cloudComment.setComment(Localization.getString("okIWonTForgetEventname").replace("{{eventName}}", eventName));
+									cloudComment.setComment("Ok, I won't forget " + eventName + "!");
 									skinSwitch.setSkin(Emotion.happy.code);
 									
 									cloudComment.trigger();
@@ -411,7 +411,7 @@ public class EventStore extends Behavior {
 				
 				// ask for any new event
 				skinSwitch.setSkin(Emotion.talking.code);
-				cloudComment.setComment(Localization.getString("anyMoreEvents"));
+				cloudComment.setComment("Any more events?");
 				
 				skinSwitch.trigger();
 				cloudComment.trigger();
@@ -445,7 +445,7 @@ public class EventStore extends Behavior {
 			// if rejected, waifu gets mad
 			if (rejected) {
 				skinSwitch.setSkin(Emotion.mad.code);
-				cloudComment.setComment(Localization.getString("whyYouAlwaysPlayingWithMe"));
+				cloudComment.setComment("Why you always playing with me?!");
 				
 				skinSwitch.trigger();
 				cloudComment.trigger();
@@ -463,7 +463,7 @@ public class EventStore extends Behavior {
 			
 		}
 		else {
-			cloudComment.setComment(Localization.getString("whatABoringDay"));
+			cloudComment.setComment("What a boring day..");
 			skinSwitch.setSkin(Emotion.sleepy.code);
 			
 			cloudComment.trigger();
