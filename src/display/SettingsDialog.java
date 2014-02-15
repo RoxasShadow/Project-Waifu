@@ -5,22 +5,28 @@ import javax.swing.JDialog;
 import core.Localization;
 import core.Serializer;
 import core.Settings;
+import core.Startup;
+import core.WindowsStartup;
+
 import java.awt.GridBagLayout;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.AbstractAction;
 import java.awt.event.ActionEvent;
+
 import javax.swing.Action;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JCheckBox;
+
 
 //  @ Project		: ProjectWaifu
 //  @ File Name		: SettingsDialog.java
@@ -44,12 +50,12 @@ public class SettingsDialog extends JDialog {
 	private final Action okAction = new OkAction();
 	private final Action cancelAction = new CancelAction();
 	private final JPanel settingsPanel = new JPanel();
-	private final JLabel lblResolution = new JLabel("Resolution");
+	private final JLabel lblResolution = new JLabel(Localization.getString("resolution"));
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private final JComboBox<String> resCombo = new JComboBox(Settings.sizes.keySet().toArray());
-	//private final JLabel lblRunOnStartup = new JLabel("Run on startup"); // TODO later
+	private final JLabel lblRunOnStartup = new JLabel(Localization.getString("runOnStartup"));
 	private final JCheckBox runOnSCheckb = new JCheckBox("");
-	private final JLabel lblPlaceOnTop = new JLabel("Place on top");
+	private final JLabel lblPlaceOnTop = new JLabel(Localization.getString("placeOnTop"));
 	private final JCheckBox placeOnTCheckb = new JCheckBox("");
 	
 	public SettingsDialog(Settings settings, JFrame mf) {
@@ -111,7 +117,7 @@ public class SettingsDialog extends JDialog {
 		gbc_resCombo.gridy = 1;
 		settingsPanel.add(resCombo, gbc_resCombo);
 		
-		/*GridBagConstraints gbc_lblRunOnStartup = new GridBagConstraints();
+		GridBagConstraints gbc_lblRunOnStartup = new GridBagConstraints();
 		gbc_lblRunOnStartup.anchor = GridBagConstraints.EAST;
 		gbc_lblRunOnStartup.insets = new Insets(0, 30, 5, 5);
 		gbc_lblRunOnStartup.gridx = 1;
@@ -123,8 +129,7 @@ public class SettingsDialog extends JDialog {
 		gbc_runOnSCheckb.anchor = GridBagConstraints.WEST;
 		gbc_runOnSCheckb.gridx = 3;
 		gbc_runOnSCheckb.gridy = 2;
-		settingsPanel.add(runOnSCheckb, gbc_runOnSCheckb);*/
-		// TODO
+		settingsPanel.add(runOnSCheckb, gbc_runOnSCheckb);
 		
 		GridBagConstraints gbc_lblPlaceOnTop = new GridBagConstraints();
 		gbc_lblPlaceOnTop.anchor = GridBagConstraints.EAST;
@@ -180,7 +185,29 @@ public class SettingsDialog extends JDialog {
 			mainFrame.setAlwaysOnTop(placeOnTCheckb.isSelected());
 			
 			// run on startup
-			// TODO
+			if(System.getProperty("os.name").toLowerCase().indexOf("win") < 0)
+			  JOptionPane.showMessageDialog(null, Localization.getString("thisFeatureIsSupportedOnlyOn").replace("{{os}}", "Windows"));
+			else {
+			  String  path    = new java.io.File(System.getProperty("java.class.path")).getAbsoluteFile().toString();
+			  Startup startup = new WindowsStartup(path);
+			  if(runOnSCheckb.isSelected())
+			    try {
+			      if(!startup.add())
+			        JOptionPane.showMessageDialog(null, Localization.getString("errorStartingOnBoot").replace("{{os}}", "Windows"));
+			    }
+			    catch(Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+			    }
+  			 else {
+  			   try {
+  			     if(!startup.remove())
+  			       JOptionPane.showMessageDialog(null, Localization.getString("errorRemovingFromBoot").replace("{{os}}", "Windows"));
+  			   }
+  			   catch(Exception ex) {
+             JOptionPane.showMessageDialog(null, ex.getMessage());
+           }
+  			 }
+			}
 			
 			dispose();
 		}

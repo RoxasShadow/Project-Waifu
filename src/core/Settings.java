@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
+
 //  @ Project		: ProjectWaifu
 //  @ File Name		: Settings.java
 //  @ Date			: 2013.07.02.
@@ -36,7 +37,19 @@ public class Settings implements Serializable {
     public Settings() {
     	
     	// default settings
-    	this.runOnStartUp = true;
+      if(System.getProperty("os.name").toLowerCase().indexOf("win") >= 0) {
+        String  path      = new java.io.File(System.getProperty("java.class.path")).getAbsoluteFile().toString();
+        Startup startup   = new WindowsStartup(path);
+        try {
+          this.runOnStartUp = startup.exists();
+        }
+        catch(Exception e) {
+          this.runOnStartUp = false;
+        }
+      }
+      else
+        this.runOnStartUp = false;
+      
     	this.placeOnTop = true;
     	this.behaviorsPath = "behaviors" + java.io.File.separator;
     	this.currentSizingName = "300x400";
