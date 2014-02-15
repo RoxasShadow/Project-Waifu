@@ -1,6 +1,6 @@
-- Refactor folder structure
-- Add initial support to i18n
-- Add JNA and KeyboardHook (http://kra.lc/blog/2011/07/java-global-system-hook/) JARs
-- Fix getHighlightedText()
-- Add support for Java 1.6
-- Add l10n support for the UI
+- Refactor folders structure  (@5c47631dbb)
+- Add JNA and KeyboardHook (http://kra.lc/blog/2011/07/java-global-system-hook/) JARs (@5c47631dbb)
+- Add initial support to i18n (@5f08ed0d9a @5eb4faa46b)
+- Fix getHighlightedText()    (@5f08ed0d9a)
+- Add support for Java 1.6    (@af4df85cc8)
+- Add l10n support for the UI (@6080e4edda @56ef840009)
