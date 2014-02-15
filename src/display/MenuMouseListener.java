@@ -57,7 +57,7 @@ public class MenuMouseListener implements MouseListener {
 
 	@Override
 	public void mouseExited(MouseEvent arg0) {
-		//this.mp.decreaseOpacity(); // TODO másik mouse listenernek kell adni a munkát h elhalványodjon
+		this.mp.decreaseOpacity();
 	}
 
 	@Override
