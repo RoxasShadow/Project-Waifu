@@ -79,8 +79,10 @@ public class Serializer {
 			
 			in.close();
 			fin.close();
-		} catch (IOException | ClassNotFoundException e) {
+		} catch (IOException e) {
 			return null;
+		} catch (ClassNotFoundException e) {
+		  return null;
 		}
     	
     	return object;
